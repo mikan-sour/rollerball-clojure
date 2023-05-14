@@ -1,12 +1,27 @@
 (ns roller-ball.core
-  ;(:require [roller-ball.utils.utils :refer [add]])
-  (:require [roller-ball.repo.couch-db-repo :refer [get-doc find-by-tag]]))
+  (:gen-class)
+  (:require [roller-ball.repo.couch-db-repo :refer [get-doc find-by-tag]])
+  (:require [roller-ball.api.router :refer [api]])
+  (:require [ring.adapter.jetty :as jetty]))
+
+(defn get-docs [res]
+  (get res :docs))
+
+(defn get-tags [data]
+  (map #(get % :tags) data))
 
 (defn -main [& args]
-  (def all (find-by-tag "c"))
-  (println all)
-  (def doc (get-doc "01e85e532f28058d8c000c3fec004232"))
-  (println (get doc :tags)))
+  (try
+    ;(def all ( ->
+    ;           (find-by-tag "c")
+    ;           (get-docs)
+    ;           (get-tags)
+    ;           ))
+    ;(println all)
+    (jetty/run-jetty api {:port 3001})
+    (catch Exception e (println (.getMessage e))))
+)
+
 
 
 
