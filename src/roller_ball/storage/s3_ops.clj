@@ -13,6 +13,7 @@
      :bucket-name bucket-name
      :prefix path
      }))
+
 (defn upload-new-object
   "upload to storage"
   [key file]
@@ -24,8 +25,6 @@
     :file file
     )
   )
-
-
 
 (defn get-existing-object
   "gets an object from storage"
