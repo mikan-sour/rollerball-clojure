@@ -13,3 +13,6 @@ pom.xml.asc
 .hg/
 couchdb
 localstack
+
+# SPA
+SPA/node_modules

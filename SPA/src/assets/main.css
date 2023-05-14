@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "mplus";
+    src: local("mplus"),
+    url(@/assets/fonts/MPLUSRounded1c-Regular.ttf) format("truetype");
+}
