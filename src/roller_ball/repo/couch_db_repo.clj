@@ -32,3 +32,12 @@
     (catch Exception e (println (.getMessage e)))
   )
 )
+
+(defn find-by-level [level]
+  (try
+    (def query {:selector {:parent { :$eq level}}})
+    (def stringified (json/write-str query))
+    (couchdb-request :post (url db-url "_find") :data stringified :headers {"Content-Type" "application/json"})
+    (catch Exception e (println (.getMessage e)))
+    )
+  )

@@ -25,8 +25,8 @@ function handleClick() {
 
 <style scoped>
     .primary-button {
-        height: 3rem;
-        width: 7rem;
+        height: 2.3rem;
+        width: 6rem;
         background-color: #5D7CFA;
         border:none;
         border-radius: 3px;
